@@ -1,0 +1,366 @@
+/* Set background color for the site */
+body{
+    background-color: rgb(162, 169, 169)
+}
+
+h2{
+    text-align: center;
+    text-decoration:underline;
+    
+}
+
+/* Skip Link and HS Link Styling for contrast*/
+.skip-link{
+    color: black
+}
+
+.link-to-site{
+    color: black
+}
+
+
+/* Accessibility Menu */
+
+#accessibility-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+#accessibility-controls button {
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#accessibility-controls button:hover {
+    background-color: #ccc;
+}
+
+/* Set dark mode settings */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode nav a,
+body.dark-mode #team-results tr,
+body.dark-mode .athlete dl,
+body.dark-mode .skip-link,
+body.dark-mode .link-to-site
+ {
+    color: #ffffff;
+    background-color: #333333;
+}
+
+
+
+/* Set high contrast setting */
+body.high-contrast {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+body.high-contrast nav a {
+    color: #000000;
+    background-color: #ffff00; 
+    border: 2px solid #ffffff;
+}
+
+body.high-contrast .athlete dl,
+body.high-contrast #team-results tr,
+body.high-contrast .skip-link,
+body.high-contrast .link-to-site {
+    color: #000000; 
+    background-color: #ffff00; 
+}
+
+/* Set Reduced Motion Setting */
+body.reduced-motion * {
+    animation: none !important;
+    transition: none !important;
+}
+
+
+/* Nav menu*/
+nav{
+    margin-top: 80px /* Ensure nav isnt covered by accessibility menu*/
+}
+/* Make links span horizontally and remove bullet points */
+nav ul{
+    list-style-type: none; /* Removes bullet points*/
+    display: flex; /* Allows nav options to grow and shrink */
+    flex-direction:column; /* Displays list horizontally*/
+    align-items: stretch; /* Makes Nav fill up its space properly*/    
+}
+
+/* Put space between links and lets links grow and shrink proportionally*/
+nav li{
+    margin:0.5rem;
+    flex: 1;
+}
+
+/* Style each link */
+nav a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    border: 2px solid black;
+    padding: clamp(0.25rem,1.5vw, .5rem);
+    background-color: white; 
+    width: 90%;
+    display: block;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+/* add hover stykling for buttons and accessibility */
+nav a:hover{
+    background-color: green;
+}
+/* Styling the title */
+/* Style for the main header */
+header {
+    text-align: center; 
+}
+
+/* Style for the main title */
+header h1 {
+    font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem);
+    color: rgb(4, 68, 4);
+    font-weight: bold;
+}
+
+/* Style for the date */
+header h2 {
+    font-size: clamp(1rem, 1.5rem, 2rem);
+    color: rgb(30, 30, 30);
+    font-style: italic;
+    text-decoration: none;
+}
+
+/* Style for the link in the title */
+header h1 a {
+    text-decoration: none;
+    color: rgb(4, 68, 4);
+    transition: color 0.5s;
+}
+
+header h1 a:hover {
+    color: #333; /* Darker color on hover */
+}
+
+/* Create table display for team results */
+#team-results{
+    display: block;
+    background-color:blanchedalmond;
+    margin: 0.5rem;
+    border-radius: 8px;
+    width: auto;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+#team-results table{
+    width:100%;
+    table-layout: fixed;
+}
+/* Style the table title */
+#team-results h2{
+    text-align: center;
+    margin:0.25rem;
+    font-size: 1.5rem;
+}
+
+/* style table rows */
+#team-results tr{
+    background-color: #f4f4f4;
+    
+}
+
+#team-results tr:nth-child(even){
+    background-color: white;
+    
+}
+
+/* organize text within their respective box */
+#team-results th, #team-results td{
+    padding:.5rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+/* sticky table header */
+#team-results th{
+    background-color: rgb(4, 68, 4);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+}
+
+#team-results th:focus,
+#team-results td:focus {
+    outline: blue;
+}
+
+
+/* Apply border around each athletes picture */
+div.athlete{
+    margin: 1rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column; /* Display athlete photo and results in column format*/
+    align-items: center; /* Align each button in center under the athletes*/
+}
+
+/* Class to give each athlete photo a background */
+.polaroid{
+    background-color:white;
+    padding: 1rem 1rem 4rem 1rem;
+    box-shadow: 5px 7px 4px rgb(46, 46, 46);
+    width:70%;
+    display: block; /* Make the container is block-level so it can be centered */
+    margin: 0 auto;
+    border-radius: 5;
+}
+
+/* Set inidvidual results to be hidden by default */
+dl {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Set results to be visible on click */
+dl.show{
+    display: grid;
+    visibility: visible;
+    opacity: 1;
+    grid-template-columns: 30% 65%;
+    width: 90%;
+    margin: 15px auto 10px auto;
+    padding-left: 20px;
+    background-color: white;
+    
+}
+/* Style for the 'Show Results' button */
+.show-results-btn {
+    background-color: rgb(4, 68, 4);   /* Green background */
+    width: 90%;
+    color: white;                /* White text */
+    padding: 10px 15px;           /* Padding for button */
+    border: none;                 /* Remove border */
+    border-radius: 5px;           /* Rounded corners */
+    cursor: pointer;             /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.show-results-btn:hover {
+    background-color: #45a049;   /* Darker green when hovered */
+}
+
+.show-results-btn:focus {
+    outline: none;               /* Remove outline on focus */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Focus style for accessibility */
+}
+
+dt, dd{
+    display: inline-block;
+    margin: 2px;
+}
+
+dt{
+    font-weight: bold;
+    width: 30%
+}
+
+dd{
+    width: 65%;
+}
+
+
+/* Style the Name of each athlete */
+figcaption{
+    color: black ;
+    text-align: center;
+    font-size: 150%;
+}
+
+figure img{
+    width:80%;
+    margin: auto;
+    display: block;
+
+}
+
+/* Set the width and display for each image */
+.polaroid img{
+    width: 100%;
+    margin: auto;
+    display: block;
+    
+}
+
+/* Layout of atheletes individual results */
+#individual-results h2{
+    grid-column: 1 / -1; /*Makes the header occupy its own row, doesnt take up an athletes slot */
+    margin-bottom: 1rem; /* Create gap between header and results */
+
+}
+#individual-results{
+    display: grid;
+    width: 100%; /* Each athletes fills out their own column */
+    padding: 1rem
+}
+
+@media (min-width: 600px) {
+    #team-results h2{
+        font-size: 1.6rem;
+    }
+    #team-results th, #team-results td{
+        font-size: 1.1rem;
+    }
+
+    #individual-results{
+        grid-template-columns: repeat(2, auto)
+    }
+}
+
+@media (min-width:900px) {
+    #team-results h2{
+        font-size: 1.7rem;
+    }
+    #team-results th, #team-results td{
+        font-size: 1.2rem;
+    }
+    #individual-results{
+        grid-template-columns: repeat(3, auto)
+    }
+    nav ul{
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1000px){
+    #team-results h2{
+        font-size: 1.8rem;
+    }
+    #team-results th, #team-results td{
+        font-size: 1.3rem;
+    }
+    #individual-results{
+        grid-template-columns:repeat(4, auto)
+    }
+}
+
+
